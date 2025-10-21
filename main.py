@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence
-from ensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model
 
 # Load the IMDB dataset word index
 word_index = imdb.get_word_index()
@@ -47,6 +47,7 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {prediction[0][0]}')
 else:
     st.write('Please enter a movie review.')
+
 
 
 
