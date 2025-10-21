@@ -4,13 +4,14 @@ import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
+from tensorflow.keras.activations import relu
 
 # Load the IMDB dataset word index
 word_index = imdb.get_word_index()
 reverse_word_index = {value: key for key, value in word_index.items()}
 
 # Load the pre-trained model with ReLU activation
-model = load_model('simple_rnn_imdb.h5', compile=False)
+model = load_model('simple_rnn_imdb.h5', compile=False,custom_objects={'relu': relu})
 
 # Step 2: Helper Functions
 # Function to decode reviews
@@ -47,6 +48,7 @@ if st.button('Classify'):
     st.write(f'Prediction Score: {prediction[0][0]}')
 else:
     st.write('Please enter a movie review.')
+
 
 
 
